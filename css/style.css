@@ -5,3 +5,7 @@
   box-sizing: border-box;
 }
 
+/* js class added if done === true */
+.to-do-done{
+  text-decoration: line-through;
+}

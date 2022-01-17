@@ -24,7 +24,7 @@ new Vue({
     },
     methods: {
         addItem: function () {
-            this.todo.push({text:this.newToDo}) // l'add item è un elemento che al this.todo -> fa il push di newToDo.text
+            this.todo.push({text:this.newToDo}) // l'add item è un elemento che al this.todo -> fa il push di newToDo.text e lo aggiunge all'array
             this.newToDo = '' // resetto e svuoto la stringa input dopo aver pushato il newToDo
         },
         removeItem: function (index) {

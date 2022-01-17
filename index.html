@@ -22,10 +22,13 @@
     <div id="app">
         
 
-        <!-- title -->
+        <!-- TITLE -->
         <h1 class="text-center mt-4">{{ title }}</h1>
 
-        <!-- input container -->
+        <!-- INPUT CONTAINER -->
+
+        <!-- il v-model richiama e si aggancia al data 'newToDo' -> che, essendo vuoto, si popola con quanto scritto nell'input -->
+        <!-- l'evento keyup consente di ascoltare l'azione dell'utente sulla tastiera -> keyup.enter  -> pigiando enter sulla tastiera automaticamente invia senza necessariamente dover cliccare sul button -->
         <div class="input-container d-flex justify-content-center mt-3">
 
             <input type="text" placeholder="Inserisci Todo" v-model="newToDo" @keyup.enter="addItem"> 
@@ -33,18 +36,20 @@
 
         </div>
 
-        <!-- list container -->
-        <!-- la x da cliccare rimuove l'elemento con funzione 'removeItem' in posizione corrente 'index' -->
-            <div class="list-container justify-content-center mt-3">
+        <!-- LIST CONTAINER -->
+        
+        <!-- il valore 'done' dell'item è === true? Se sì, aggiungi classe css per text sbarrato / altrimenti class vuota -> testo normale -->
+        <!-- la x da cliccare rimuove l'elemento tramite la funzione 'removeItem' in posizione corrente 'index' e svuota l'array di index corrente (item appena rimosso) -->
+        <div class="list-container justify-content-center mt-3">
                 
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="(item, index) in todo">
-                        {{item.text}} 
-                        <i class="fas fa-times mx-5" @click="removeItem(index)"></i>
-                    </li> 
-                </ul>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(item, index) in todo">
+                    <span :class="item.done === true ? 'to-do-done' : '' ">{{item.text}}</span>
+                    <i class="fas fa-times mx-5" @click="removeItem(index)"></i>
+                </li> 
+            </ul>
                     
-            </div>
+        </div>
 
 
     </div>
