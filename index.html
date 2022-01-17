@@ -20,7 +20,33 @@
 
     <!-- js #app -->
     <div id="app">
-    
+        
+
+        <!-- title -->
+        <h1 class="text-center mt-4">{{ title }}</h1>
+
+        <!-- input container -->
+        <div class="input-container d-flex justify-content-center mt-3">
+
+            <input type="text" placeholder="Inserisci Todo" v-model="newToDo" @keyup.enter="addItem"> 
+            <button class="btn btn-dark mx-2" @click="addItem">Aggiungi</button>
+
+        </div>
+
+        <!-- list container -->
+        <!-- la x da cliccare rimuove l'elemento con funzione 'removeItem' in posizione corrente 'index' -->
+            <div class="list-container justify-content-center mt-3">
+                
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(item, index) in todo">
+                        {{item.text}} 
+                        <i class="fas fa-times mx-5" @click="removeItem(index)"></i>
+                    </li> 
+                </ul>
+                    
+            </div>
+
+
     </div>
 
 

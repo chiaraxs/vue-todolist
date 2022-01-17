@@ -1,14 +1,38 @@
 new Vue({
     el: '#app',
     data: {
-    
-        
+        title: 'ToDoList',
+        todo: [
+            {
+                text: 'Fai la spesa',
+                done: true
+            },
+            {
+                text: 'Acquista libri',
+                done: true
+            },
+            {
+                text: 'Manicure',
+                done: false
+            },
+            {
+                text: 'Aperitivo in centro',
+                done: false
+            },
+        ],
+        newToDo: '' // nuovo todo aggiunto con input
     },
     methods: {
-        
-
+        addItem: function () {
+            this.todo.push({text:this.newToDo}) // l'add item è un elemento che al this.todo -> fa il push di newToDo.text
+            this.newToDo = '' // resetto e svuoto la stringa input dopo aver pushato il newToDo
+        },
+        removeItem: function (index) {
+            this.todo.splice(index,1) // the splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place -> 1 indica che rimuove 1 solo elemento in quel dato index -> 
+        },
     }
 });
+
 
 
 // Descrizione:
