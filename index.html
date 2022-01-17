@@ -38,18 +38,19 @@
 
         <!-- LIST CONTAINER -->
         
-        <!-- il valore 'done' dell'item è === true? Se sì, aggiungi classe css per text sbarrato / altrimenti class vuota -> testo normale -->
+        <!-- la classe css 'to-do-done' viene aggiunta solo se item.done è vero (true) / altrimenti no -> testo normale -->
+        <!-- n.b. in questo modo evito di aggiungere classe vuota con il ternario -->
         <!-- la x da cliccare rimuove l'elemento tramite la funzione 'removeItem' in posizione corrente 'index' e svuota l'array di index corrente (item appena rimosso) -->
         <div class="list-container justify-content-center mt-3">
                 
             <ul class="list-group">
                 <li class="list-group-item" v-for="(item, index) in todo">
-                    <span :class="item.done === true ? 'to-do-done' : '' ">{{item.text}}</span>
+                    <span :class= "{'to-do-done' : item.done}" >{{item.text}}</span>
                     <i class="fas fa-times mx-5" @click="removeItem(index)"></i>
                 </li> 
             </ul>
                     
-        </div>
+            </div>
 
 
     </div>
