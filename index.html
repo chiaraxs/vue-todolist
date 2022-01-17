@@ -28,11 +28,11 @@
 
         <!-- INPUT CONTAINER -->
 
-        <!-- il v-model richiama e si aggancia al data 'newToDo' -> che, essendo vuoto, si popola con quanto scritto nell'input -->
+        <!-- il v-model richiama e si aggancia al data 'newToDo' -> modifica/aggiorna l'oggetto newTodo (text + true/false) che si popola con quanto scritto nell'input -->
         <!-- l'evento keyup consente di ascoltare l'azione dell'utente sulla tastiera -> keyup.enter  -> pigiando enter sulla tastiera automaticamente invia senza necessariamente dover cliccare sul button -->
         <div class="input-container d-flex justify-content-center mt-3">
 
-            <input class="input-group-text" type="text" placeholder="Inserisci Todo" v-model="newToDo" @keyup.enter="addItem"> 
+            <input class="input-group-text" type="text" placeholder="Inserisci Todo" v-model="newToDo.text" @keyup.enter="addItem"> 
             <button class="btn btn-dark mx-2" @click="addItem">Aggiungi</button>
 
         </div>

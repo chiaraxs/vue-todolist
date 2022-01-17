@@ -20,13 +20,16 @@ new Vue({
                 done: false
             },
         ],
-        newToDo: '' // nuovo todo aggiunto con input
-        
+        newToDo: {
+            text: '',
+            done: false
+        }
+
     },
     methods: {
         addItem: function () {
-            this.todo.push({text:this.newToDo}) // l'add item è un elemento che al this.todo -> fa il push di newToDo.text e lo aggiunge all'array
-            this.newToDo = '' // resetto e svuoto la stringa input dopo aver pushato il newToDo
+            this.todo.push(this.newToDo) // l'add item è un elemento che al this.todo -> pusha l'oggetto newToDo (text vuoto '' + done: false)
+            this.newToDo = {text:'', done: false}  // resetto la stringa input dopo aver pushato il newToDo e la riporto allo stato iniziale dichiarato nell'oggetto 'newToDo'
         },
         removeItem: function (index) {
             this.todo.splice(index,1) // the splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place -> 1 indica che rimuove 1 solo elemento in quel dato index -> 
