@@ -21,6 +21,7 @@ new Vue({
             },
         ],
         newToDo: '' // nuovo todo aggiunto con input
+        
     },
     methods: {
         addItem: function () {
@@ -29,6 +30,13 @@ new Vue({
         },
         removeItem: function (index) {
             this.todo.splice(index,1) // the splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place -> 1 indica che rimuove 1 solo elemento in quel dato index -> 
+        },
+        doneOnClick: function (index) {
+            if (this.todo[index].done) {
+                this.todo[index].done = false;
+            } else {
+                this.todo[index].done = true;
+            } // al click su span : se il done del corrente index su todo è true -> passa a false | altrimenti, se è false -> passa a true
         },
     }
 });
