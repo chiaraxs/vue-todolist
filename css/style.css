@@ -5,7 +5,16 @@
   box-sizing: border-box;
 }
 
+
 /* js class added if done === true */
 .to-do-done{
   text-decoration: line-through;
 }
+
+/* fas style */
+.fas{
+  color: #B22222;
+  font-weight: bolder;
+  cursor: pointer;
+}
+

@@ -31,7 +31,7 @@
         <!-- l'evento keyup consente di ascoltare l'azione dell'utente sulla tastiera -> keyup.enter  -> pigiando enter sulla tastiera automaticamente invia senza necessariamente dover cliccare sul button -->
         <div class="input-container d-flex justify-content-center mt-3">
 
-            <input type="text" placeholder="Inserisci Todo" v-model="newToDo" @keyup.enter="addItem"> 
+            <input class="input-group-text" type="text" placeholder="Inserisci Todo" v-model="newToDo" @keyup.enter="addItem"> 
             <button class="btn btn-dark mx-2" @click="addItem">Aggiungi</button>
 
         </div>
@@ -41,16 +41,16 @@
         <!-- la classe css 'to-do-done' viene aggiunta solo se item.done è vero (true) / altrimenti no -> testo normale -->
         <!-- n.b. in questo modo evito di aggiungere classe vuota con il ternario -->
         <!-- la x da cliccare rimuove l'elemento tramite la funzione 'removeItem' in posizione corrente 'index' e svuota l'array di index corrente (item appena rimosso) -->
-        <div class="list-container justify-content-center mt-3">
+        <div class="list-container d-flex justify-content-center mt-5">
                 
-            <ul class="list-group">
-                <li class="list-group-item" v-for="(item, index) in todo">
-                    <span :class= "{'to-do-done' : item.done}" >{{item.text}}</span>
-                    <i class="fas fa-times mx-5" @click="removeItem(index)"></i>
+            <ul class="list-group ">
+                <li class="list-group-item d-flex" v-for="(item, index) in todo">
+                    <span class="p-2 w-100" :class= "{'to-do-done' : item.done}" >{{item.text}}</span>
+                    <i class="fas fa-times p-2 flex-shrink-1 ms-5" @click="removeItem(index)"></i>
                 </li> 
             </ul>
                     
-            </div>
+        </div>
 
 
     </div>
