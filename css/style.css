@@ -12,6 +12,7 @@ background-color: #A9A9A9;
 /* js class added if done === true */
 .to-do-done{
   text-decoration: line-through;
+  cursor: pointer;
 }
 
 /* fas style */

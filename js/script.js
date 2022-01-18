@@ -21,28 +21,31 @@ new Vue({
             },
         ],
         newToDo: {
-            text: '',
+            text: '',     // newTodo text si popola tramite input utente
             done: false
         }
-
     },
     methods: {
         addItem: function () {
-            this.todo.push(this.newToDo) // l'add item è un elemento che al this.todo -> pusha l'oggetto newToDo (text vuoto '' + done: false)
-            this.newToDo = {text:'', done: false}  // resetto la stringa input dopo aver pushato il newToDo e la riporto allo stato iniziale dichiarato nell'oggetto 'newToDo'
+            if (this.newToDo.text !== '') {     // if evita di stampare in lista un elemento vuoto -> stampa solo se il text in input è diverso da ''
+                this.todo.push(this.newToDo)    // l'add item è un elemento che al this.todo -> pusha l'oggetto newToDo (text vuoto '' + done: false)
+                this.newToDo = {text:'', done: false}     // resetto la stringa input dopo aver pushato il newToDo e la riporto allo stato iniziale dichiarato nell'oggetto 'newToDo'
+            }
         },
         removeItem: function (index) {
-            this.todo.splice(index,1) // the splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place -> 1 indica che rimuove 1 solo elemento in quel dato index -> 
+            this.todo.splice(index,1)     // the splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place -> 1 indica che rimuove 1 solo elemento in quel dato index -> 
         },
         doneOnClick: function (index) {
             if (this.todo[index].done) {
                 this.todo[index].done = false;
             } else {
                 this.todo[index].done = true;
-            } // al click su span : se il done del corrente index su todo è true -> passa a false | altrimenti, se è false -> passa a true
-        },
+            }
+            // al click su span : se il done del corrente index su todo è true -> passa a false | altrimenti, se è false -> passa a true
+            // alternativa più breve -> this.todo[index].done = ! this.todo[index].done // è il contrario di sé stesso
+        }, 
     }
-});
+}); 
 
 
 
